@@ -54,18 +54,16 @@ public class PostalCodesMain {
             }
         }
 
-        ArrayList<Integer> codes = new ArrayList<>();
+        ArrayList<String> codes = new ArrayList<>();
 
         for (String postalCode : postalCodes.keySet()) {
             if (postalCodes.get(postalCode).equalsIgnoreCase(answer)) {
-                codes.add(Integer.parseInt(postalCode));
+                codes.add(postalCode);
             }
         }
 
         Collections.sort(codes);
+        System.out.println(codes);
 
-        for (Integer code : codes) {
-            System.out.println(String.format("%05d", code));
-        }
     }
 }
