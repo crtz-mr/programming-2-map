@@ -1,5 +1,7 @@
 package part03;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -45,5 +47,25 @@ public class PostalCodesMain {
         // TODO: Implement your logic here
 
         scanner.close();
+
+        for (String postalCode : postalCodes.keySet()) {
+            if (postalCode.equalsIgnoreCase(answer)) {
+                System.out.println(postalCodes.get(postalCode));
+            }
+        }
+
+        ArrayList<Integer> codes = new ArrayList<>();
+
+        for (String postalCode : postalCodes.keySet()) {
+            if (postalCodes.get(postalCode).equalsIgnoreCase(answer)) {
+                codes.add(Integer.parseInt(postalCode));
+            }
+        }
+
+        Collections.sort(codes);
+
+        for (Integer code : codes) {
+            System.out.println(String.format("%05d", code));
+        }
     }
 }
